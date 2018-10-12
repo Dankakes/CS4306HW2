@@ -29,12 +29,17 @@ body {
         color: white;
     }
 }
-.treeplayground{
-    margin:0 auto;
+.treeplayground {
+    margin: 0 auto;
     border: 5px solid black;
     border-radius: 5px;
     min-height: 500px;
     width: 90%;
-    margin-bottom:30px;
-    
+    margin-bottom: 30px;
+
+   
+}
+
+#tree {
+    text-align: center;
 }

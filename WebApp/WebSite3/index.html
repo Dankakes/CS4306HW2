@@ -11,18 +11,32 @@
         <h2>Homework 2<br />Spanning Trees</h2>
     </div>
     <div class="mainbtnset jumbotron">
-        <button class="btn btn-info" type="button">Generate Tree</button>
-        <button class="btn btn-info" type="button">Prim's Algorithm</button>
-        <button class="btn btn-info" type="button">Kruskal's Algorithm</button>
-        <input class="btn btn-info" type="number" placeholder="How Many Nodes" />
+        <button class="btn btn-success" type="button" id="begin">Begin</button>
+        <br />
+        <br />
+        <button class="btn btn-info" type="button" id="shuffle">Shuffle Costs</button>
+        <button class="btn btn-info" type="button" id="prims">Prim's Algorithm</button>
+        <button class="btn btn-info" type="button" id="kruskals">Kruskal's Algorithm</button>
+
     </div>
 
     <div class="treeplayground">
+        <div>
+            <span><strong>Node Costs:</strong> <span id="values">placeholder</span></span>
+            
+        </div>
 
+        <div>
+            <a id="tree" style="text-align: center; margin: 0 auto; display: block;">
+                <img src="Images/graph.png" />
+            </a>
+        </div>
     </div>
-
 
     <script type="text/javascript" src="Scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="Algorithms/algorithms.js"></script>
+    <script type="text/javascript" src="Scripts/scripts.js"></script>
+
+
 </body>
 </html>
