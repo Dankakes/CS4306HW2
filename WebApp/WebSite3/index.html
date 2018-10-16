@@ -26,14 +26,8 @@
             margin: 0 20%;
         }
 
-        .mainbtnset input:: placeholder{
-            color: white;
-        }
-
         .treeplayground {
             margin: 0 auto;
-            border: 5px solid black;
-            border-radius: 5px;
             min-height: 500px;
             width: 90%;
             margin-bottom: 30px;
@@ -42,13 +36,13 @@
         #ab {
             position:relative;
             top: -558px;
-            left: 33%;
+            left: 37%;
         }
 
         #ae {
             position: relative;
             top: -480px;
-            left: 31%;
+            left: 37%;
         }
 
         #bc {
@@ -71,21 +65,72 @@
 
         #cg {
             position: relative;
-            top: -558px;
-            left: 400px;
+            top: -530px;
+            left: 63%;
         }
 
         #df {
             position: relative;
-            top: -558px;
-            left: 400px;
+            top: -560px;
+            left: 36%;
         }
 
         #fe {
             position: relative;
-            top: -558px;
-            left: 400px;
+            top: -545px;
+            left: 43%;
         }
+
+        @media only screen and (min-width: 600px) and (max-width: 1400px) {
+            #ab {
+                position: relative;
+                top: -558px;
+                left: 33%;
+            }
+
+            #ae {
+                position: relative;
+                top: -480px;
+                left: 32%;
+            }
+
+            #bc {
+                position: relative;
+                top: -590px;
+                left: 52%;
+            }
+
+            #bd {
+                position: relative;
+                top: -610px;
+                left: 41%;
+            }
+
+            #cd {
+                position: relative;
+                top: -580px;
+                left: 47%;
+            }
+
+            #cg {
+                position: relative;
+                top: -530px;
+                left: 68%;
+            }
+
+            #df {
+                position: relative;
+                top: -560px;
+                left: 31%;
+            }
+
+            #fe {
+                position: relative;
+                top: -545px;
+                left: 40%;
+            }
+        }
+
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
@@ -109,9 +154,9 @@
             
         </div>
 
-        <div>
+        <div style="overflow: hidden;">
             <a id="tree" style="text-align: center; margin: 0 auto; display: block;">
-                <img src="Images/graph.png" />
+                <img src="Images/graph.png" style="border: 5px solid black; border-radius: 5px;"/>
             </a>
             <h3 id="ab">X</h3>
             <h3 id="ae">X</h3>
@@ -126,7 +171,7 @@
 
     <script type="text/javascript" src="Scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="Algorithms/algorithms.js"></script>
-    <script type="text/javascript" src="Scripts/scripts.js"></script>
+    
 
 
 </body>

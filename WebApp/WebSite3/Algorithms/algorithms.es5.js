@@ -1,8 +1,8 @@
 ﻿//Page Logic
 
-
-
 //Tree Object
+
+"use strict";
 
 var ABcost = 0;
 var AEcost = 0;
@@ -70,7 +70,6 @@ var tree_0 = {
     nodeSet: nodes
 };
 
-
 $('#shuffle').click(function shuffleCosts() {
 
     AB.cost = Math.floor(Math.random() * 10);
@@ -81,11 +80,10 @@ $('#shuffle').click(function shuffleCosts() {
     CG.cost = Math.floor(Math.random() * 10);
     DF.cost = Math.floor(Math.random() * 10);
     FE.cost = Math.floor(Math.random() * 10);
-
 });
 
 $('button').click(function reprintAll() {
-    document.getElementById("values").innerHTML = AB.vertex + ": "+ AB.cost + ", " + AE.vertex + ": " + AE.cost + ", " + BC.vertex + ": " + BC.cost + ", " + BD.vertex + ": " + BD.cost + ", " + CD.vertex + ": " + CD.cost + ", " + CG.vertex + ": " + CG.cost + ", " + DF.vertex + ": " + DF.cost + ", " + FE.vertex + ": " + FE.cost;
+    document.getElementById("values").innerHTML = AB.vertex + ": " + AB.cost + ", " + AE.vertex + ": " + AE.cost + ", " + BC.vertex + ": " + BC.cost + ", " + BD.vertex + ": " + BD.cost + ", " + CD.vertex + ": " + CD.cost + ", " + CG.vertex + ": " + CG.cost + ", " + DF.vertex + ": " + DF.cost + ", " + FE.vertex + ": " + FE.cost;
     document.getElementById("ab").innerHTML = AB.cost;
     document.getElementById("ae").innerHTML = AE.cost;
     document.getElementById("bc").innerHTML = BC.cost;
@@ -94,11 +92,9 @@ $('button').click(function reprintAll() {
     document.getElementById("cg").innerHTML = CG.cost;
     document.getElementById("df").innerHTML = DF.cost;
     document.getElementById("fe").innerHTML = FE.cost;
-
 });
 
-$('#begin').click(function() {
+$('#begin').click(function () {
     reprintAll();
 });
-
 
