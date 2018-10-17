@@ -15,9 +15,9 @@
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
-        #opening h2{
-            text-align: center;
-        }
+            #opening h2 {
+                text-align: center;
+            }
 
         .mainbtnset {
             text-align: center;
@@ -34,7 +34,7 @@
         }
 
         #ab {
-            position:relative;
+            position: relative;
             top: -558px;
             left: 37%;
         }
@@ -130,7 +130,6 @@
                 left: 40%;
             }
         }
-
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
@@ -145,33 +144,70 @@
         <button class="btn btn-info" type="button" id="shuffle">Shuffle Costs</button>
         <button class="btn btn-info" type="button" id="prims">Prim's Algorithm</button>
         <button class="btn btn-info" type="button" id="kruskals">Kruskal's Algorithm</button>
+        <br />
+        <br />
+        <button class="btn btn-info" type="button" id="highlightvert">Highlight Vert Test</button>
+        <button class="btn btn-info" type="button" id="highlightnode">Highlight Node Test</button>
+        <br />
+        <br />
+        <button class="btn btn-info" type="button" id="resethighlight">Reset Highlight</button>
 
     </div>
 
     <div class="treeplayground">
         <div>
             <span><strong>Node Costs:</strong> <span id="values">placeholder</span></span>
-            
+
         </div>
 
-        <div style="overflow: hidden;">
-            <a id="tree" style="text-align: center; margin: 0 auto; display: block;">
-                <img src="Images/graph.png" style="border: 5px solid black; border-radius: 5px;"/>
-            </a>
-            <h3 id="ab">X</h3>
-            <h3 id="ae">X</h3>
-            <h3 id="bc">X</h3>
-            <h3 id="bd">X</h3>
-            <h3 id="cd">X</h3>
-            <h3 id="cg">X</h3>
-            <h3 id="df">X</h3>
-            <h3 id="fe">X</h3>
+        <div style="">
+            <svg style="border: 5px solid black; border-radius: 5px; display:block; margin: auto;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80%" height="80%" viewBox="0 -8.99281e-14 1380 810" preserveAspectRatio="xMidYMid meet">
+                <rect id="svgEditorBackground" x="0" y="0" width="1380" height="810" style="fill: none; stroke: none;" />
+
+                <!--Node Circles-->
+                <circle id="a_circle" cx="250" cy="232.00000000000009" style="fill:white;stroke:black;stroke-width:2px;" r="30.4732" />
+                <circle id="b_circle" cx="612" cy="130.00000000000009" style="fill:white;stroke:black;stroke-width:2px;" r="30.4732" />
+                <circle id="c_circle" cx="947" cy="350.0000000000001" style="fill:white;stroke:black;stroke-width:2px;" r="30.4732" />
+                <circle id="g_circle" cx="1076" cy="650.0000000000001" style="fill:white;stroke:black;stroke-width:2px;" r="30.4732" />
+                <circle id="d_circle" cx="337" cy="452" style="fill:white;stroke:black;stroke-width:2px;" r="30.4732" />
+                <circle id="f_circle" cx="345" cy="699.0000000000001" style="fill:white;stroke:black;stroke-width:2px;" r="30.4732" />
+                <circle id="e_circle" cx="679" cy="487.0000000000001" style="fill:white;stroke:black;stroke-width:2px;" r="30.4732" />
+
+                <!--Verticies-->
+                <line id="ae_line" x1="276" y1="249.0000000000001" x2="652" y2="475.0000000000001" style="stroke:black;fill:none;stroke-width:5px;" />
+                <line id="ab_line" x1="277" y1="219" x2="582" y2="135" style="stroke:black;fill:none;stroke-width:5px;" />
+                <line id="bc_line" x1="922" y1="334" x2="634" y2="151" style="stroke:black;fill:none;stroke-width:5px;" />
+                <line id="cd_line" x1="918" y1="359" x2="367" y2="449" style="stroke:black;fill:none;stroke-width:5px;" />
+                <line id="bd_line" x1="594" y1="154" x2="354" y2="426" style="stroke:black;fill:none;stroke-width:5px;" />
+                <line id="df_line" x1="337" y1="482" x2="346" y2="669" style="stroke:black;fill:none;stroke-width:5px;" />
+                <line id="fe_line" x1="657" y1="508" x2="373" y2="687" style="stroke:black;fill:none;stroke-width:5px;" />
+                <line id="cg_line" x1="1064" y1="623" x2="960" y2="377" style="stroke:black;fill:none;stroke-width:5px;" />
+
+                <!--Nodes-->
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="240" y="241" id="a" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">A</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="539.335" y="155.933" id="b" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">B</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="815.523" y="338.707" id="c" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">C</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="920.59" y="585.135" id="g" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">G</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="594.135" y="452.948" id="e" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">E</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="311.493" y="422.441" id="d" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">D</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="319.013" y="625.882" id="f" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">F</text>
+
+                <!--Vertex Costs-->
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="379.041" y="172.546" id="ab" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">X</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="687.47" y="230.493" id="bc" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">X</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="471.789" y="275.213" id="bd" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">X</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="645.469" y="391.854" id="cd" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">X</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="325.627" y="320.013" id="ae" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">X</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="486.908" y="562.308" id="fe" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">X</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="294.373" y="521.054" id="df" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">X</text>
+                <text style="fill:black;font-family:Trebuchet MS;font-size:30px;" x="905.364" y="475.667" id="cg" transform="matrix(1.20967 0 0 1.20967 -50.8613 -46.9367)" dy="" dx="">X</text>
+            </svg>
         </div>
     </div>
 
     <script type="text/javascript" src="Scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="Algorithms/algorithms.js"></script>
-    
+
 
 
 </body>

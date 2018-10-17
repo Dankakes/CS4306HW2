@@ -1,6 +1,10 @@
-﻿//Page Logic
+﻿//Page Info
 
-
+/*Highlight Vectors with highlightVert("vertstring"); with vertstring being "ab" or "bd" etc
+ *Highlight Vectors that have been visited in your logic
+ *Shuffle Button resets highlighting, and if youre worried that the highlight function isnt working theres a 
+ *button that tests if the highlight function is working. 
+ */
 
 //Tree Object
 
@@ -71,6 +75,8 @@ var tree_0 = {
 };
 
 
+
+//Math to randomize all costs
 $('#shuffle').click(function shuffleCosts() {
 
     AB.cost = Math.floor(Math.random() * 10);
@@ -82,8 +88,29 @@ $('#shuffle').click(function shuffleCosts() {
     DF.cost = Math.floor(Math.random() * 10);
     FE.cost = Math.floor(Math.random() * 10);
 
+
 });
 
+//Prim's Algorithm (Daemon)
+
+
+
+
+//Prim's Button
+$("#prims").click(function () {
+
+});
+
+//Kruskal's Algorithm (Eric)
+
+
+
+//Kruskal's Button
+$("#kruskals").click(function () {
+
+});
+
+//Printing and Visual Changes
 $('button').click(function reprintAll() {
     document.getElementById("values").innerHTML = AB.vertex + ": "+ AB.cost + ", " + AE.vertex + ": " + AE.cost + ", " + BC.vertex + ": " + BC.cost + ", " + BD.vertex + ": " + BD.cost + ", " + CD.vertex + ": " + CD.cost + ", " + CG.vertex + ": " + CG.cost + ", " + DF.vertex + ": " + DF.cost + ", " + FE.vertex + ": " + FE.cost;
     document.getElementById("ab").innerHTML = AB.cost;
@@ -95,10 +122,128 @@ $('button').click(function reprintAll() {
     document.getElementById("df").innerHTML = DF.cost;
     document.getElementById("fe").innerHTML = FE.cost;
 
+    //resetHighlight();
+
 });
 
-$('#begin').click(function() {
+function highlightVert(vert) {
+    switch (vert) {
+        case "ab":
+            document.getElementById("ab").style.fill = "#1850FF";
+            document.getElementById("ab_line").style.stroke = "#1850FF";
+            break;
+        case "ae":
+            document.getElementById("ae").style.fill = "#1850FF";
+            document.getElementById("ae_line").style.stroke = "#1850FF";
+            break;
+        case "bc":
+            document.getElementById("bc").style.fill = "#1850FF";
+            document.getElementById("bc_line").style.stroke = "#1850FF";
+            break;
+        case "bd":
+            document.getElementById("bd").style.fill = "#1850FF";
+            document.getElementById("bd_line").style.stroke = "#1850FF";
+            break;
+        case "cd":
+            document.getElementById("cd").style.fill = "#1850FF";
+            document.getElementById("cd_line").style.stroke = "#1850FF";
+            break;
+        case "cg":
+            document.getElementById("cg").style.fill = "#1850FF";
+            document.getElementById("cg_line").style.stroke = "#1850FF";
+            break;
+        case "df":
+            document.getElementById("df").style.fill = "#1850FF";
+            document.getElementById("df_line").style.stroke = "#1850FF";
+            break;
+        case "fe":
+            document.getElementById("fe").style.fill = "#1850FF";
+            document.getElementById("fe_line").style.stroke = "#1850FF";
+            break;
+    }
+}
+
+function highlightNode(node) {
+    switch (node) {
+        case "a":
+            document.getElementById("a_circle").style.fill = "#1850FF";
+            break;
+        case "b":
+            document.getElementById("b_circle").style.fill = "#1850FF";
+            break;
+        case "c":
+            document.getElementById("c_circle").style.fill = "#1850FF";
+            break;
+        case "d":
+            document.getElementById("d_circle").style.fill = "#1850FF";
+            break;
+        case "e":
+            document.getElementById("e_circle").style.fill = "#1850FF";
+            break;
+        case "f":
+            document.getElementById("f_circle").style.fill = "#1850FF";
+            break;
+        case "g":
+            document.getElementById("g_circle").style.fill = "#1850FF";
+            break;
+       
+    }
+}
+
+$("#resethighlight").click(function resetHighlight() {
+
+    document.getElementById("ab").style.fill = "black";
+    document.getElementById("ae").style.fill = "black";
+    document.getElementById("bc").style.fill = "black";
+    document.getElementById("bd").style.fill = "black";
+    document.getElementById("cd").style.fill = "black";
+    document.getElementById("cg").style.fill = "black";
+    document.getElementById("df").style.fill = "black";
+    document.getElementById("fe").style.fill = "black";
+
+    document.getElementById("ab_line").style.stroke = "black";
+    document.getElementById("ae_line").style.stroke = "black";
+    document.getElementById("bc_line").style.stroke = "black";
+    document.getElementById("bd_line").style.stroke = "black";
+    document.getElementById("cd_line").style.stroke = "black";
+    document.getElementById("cg_line").style.stroke = "black";
+    document.getElementById("df_line").style.stroke = "black";
+    document.getElementById("fe_line").style.stroke = "black";
+
+    document.getElementById("a_circle").style.fill = "white";
+    document.getElementById("b_circle").style.fill = "white";
+    document.getElementById("c_circle").style.fill = "white";
+    document.getElementById("d_circle").style.fill = "white";
+    document.getElementById("e_circle").style.fill = "white";
+    document.getElementById("f_circle").style.fill = "white";
+    document.getElementById("g_circle").style.fill = "white";
+});
+
+
+$("#begin").click(function () {
     reprintAll();
 });
 
 
+
+$("#highlightvert").click(function () {
+    highlightVert("ab");
+    highlightVert("ae");
+    highlightVert("bc");
+    highlightVert("bd");
+    highlightVert("cd");
+    highlightVert("cg");
+    highlightVert("df");
+    highlightVert("fe");
+});
+
+$("#highlightnode").click(function () {
+    highlightNode("a");
+    highlightNode("b");
+    highlightNode("c");
+    highlightNode("d");
+    highlightNode("e");
+    highlightNode("f");
+    highlightNode("g");
+
+});
