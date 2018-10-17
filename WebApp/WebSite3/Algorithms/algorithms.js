@@ -1,9 +1,16 @@
 ﻿//Page Info
 
-/*Highlight Vectors with highlightVert("vertstring"); with vertstring being "ab" or "bd" etc
- *Highlight Vectors that have been visited in your logic
- *Shuffle Button resets highlighting, and if youre worried that the highlight function isnt working theres a 
- *button that tests if the highlight function is working. 
+/* 
+ * Highlight Vectors with highlightVert("vertstring"); with vertstring being "ab" or "bd" etc
+ * HighlightNodes with highlightNode("nodestring"); with nodestring being "a" or "b" etc
+ * Highlight Vectors/Nodes that have been visited in your logic
+ * 
+ * Shuffle Button does not reset highlighting temporarially, and if youre worried that the highlight function isnt working theres a 
+ *   button that tests if the highlight function is working properly. 
+ * 
+ * The way to call nodes using vars without specifically typing each node out is with: 
+ * "tree.nodeSet.vertices[1].cost/.nodes/.vertex"
+ * This calls the tree, the set, the first vertex (ab), then either the cost, an array of the nodes used, or a string of the vertex ID
  */
 
 //Tree Object
@@ -19,49 +26,49 @@ var FEcost = 0;
 
 var AB = {
     vertex: "AB",
-    nodevalues: ["A", "B"],
+    nodes: ["A", "B"],
     cost: ABcost
 };
 
 var AE = {
     vertex: "AE",
-    nodevalues: ["A", "E"],
+    nodes: ["A", "E"],
     cost: AEcost
 };
 
 var BD = {
     vertex: "BD",
-    nodevalues: ["B", "D"],
+    nodes: ["B", "D"],
     cost: BDcost
 };
 
 var BC = {
     vertex: "BC",
-    nodevalues: ["B", "C"],
+    nodes: ["B", "C"],
     cost: BCcost
 };
 
 var CD = {
     vertex: "CD",
-    nodevalues: ["C", "D"],
+    nodes: ["C", "D"],
     cost: CDcost
 };
 
 var CG = {
     vertex: "CG",
-    nodevalues: ["C", "G"],
+    nodes: ["C", "G"],
     cost: CGcost
 };
 
 var DF = {
     vertex: "DF",
-    nodevalues: ["D", "F"],
+    nodes: ["D", "F"],
     cost: DFcost
 };
 
 var FE = {
     vertex: "FE",
-    nodevalues: ["F", "E"],
+    nodes: ["F", "E"],
     cost: FEcost
 };
 
@@ -69,7 +76,7 @@ var nodes = {
     vertices: [AB, AE, BD, BC, CD, CG, DF, FE]
 };
 
-var tree_0 = {
+var tree = {
     nodeCount: 8,
     nodeSet: nodes
 };
