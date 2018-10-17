@@ -1,8 +1,14 @@
 ﻿//Page Info
 
 /* 
- * Highlight Vectors with highlightVert("vertstring"); with vertstring being "ab" or "bd" etc
- * HighlightNodes with highlightNode("nodestring"); with nodestring being "a" or "b" etc
+ * Highlight Vectors with:
+ * "highlightVert("vertstring")" 
+ * with vertstring being "ab" or "bd" etc
+ * 
+ * HighlightNodes with:
+ * "highlightNode("nodestring")"
+ * with nodestring being "a" or "b" etc
+ * 
  * Highlight Vectors/Nodes that have been visited in your logic
  * 
  * Shuffle Button does not reset highlighting temporarially, and if youre worried that the highlight function isnt working theres a 
@@ -11,6 +17,17 @@
  * The way to call nodes using vars without specifically typing each node out is with: 
  * "tree.nodeSet.vertices[1].cost/.nodes/.vertex"
  * This calls the tree, the set, the first vertex (ab), then either the cost, an array of the nodes used, or a string of the vertex ID
+ * 
+ * Could use this to check if a vertex has been visited by storing the .vertex in an array, 
+ *   or if the nodes have been visited by storing the .nodes in an array.
+ * 
+ * Could use the .cost to check the cost of each vert or use them to store the values into your Identity Matrix.
+ *   
+ * Using the calling through the "tree.nodeSet.vertices[1].cost/.nodes/.vertex" can be used in loops if need be to hopefully make it easier
+ *   than hard-checking each individual node with a set path. 
+ *   
+ * The Nodes will always be A, B, C, D, E, F, and G, but the costs are shuffled each time. 
+ *   
  */
 
 //Tree Object
