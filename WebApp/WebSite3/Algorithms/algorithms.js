@@ -95,7 +95,7 @@ var nodes = {
 
 var tree = {
     nodeCount: 8,
-    nodeSet: nodes
+	nodeSet: nodes
 };
 
 
@@ -115,14 +115,46 @@ $('#shuffle').click(function shuffleCosts() {
 
 });
 
-//Prim's Algorithm (Daemon)
+////Prim's Algorithm (Daemin)
+//function primsAlgorithm() {
+//	var key[];
+//	var mstSet[];
+//	function minKey(key[], mstSet []) {2q222
+//		var min = Number.MAX_VALUE, 
+//		var minIndex = -1;
+
+//		for (int v = 0; v < 6; v++) {
+//			if (mstSet[v] == false && key[v] < min)
+//			{
+//				min = key[v];
+//				minindex = v;
+//			}
+			
+//		}
+//			return minIndex;
+//		}
+
+	
+//	for (var i = 0; i < 6; i++) {
+//		key[i] = Number.MAX_VALUE;
+//		mstSet[i] = false;
+//	}
+
+//	key[0] = 0;
+//	parent[0] = -1
+	
+
+//	var u = primNodes[0];
+//	key[0] = 0;
+//	}
+	
 
 
 
 
 //Prim's Button
 $("#prims").click(function () {
-
+	highlightVert("ab");
 });
 
 //Kruskal's Algorithm (Eric)
