@@ -89,13 +89,50 @@ var FE = {
     cost: FEcost
 };
 
-var nodes = {
+var A = {
+    touching: [B, E],
+    verticies: [AB, AE]
+};
+
+var B = {
+    touching: [A, D, C],
+    verticies: [AB, BD, BC]
+};
+
+var C = {
+    touching: [B, D, G],
+    verticies: [BC, CD, GC]
+};
+
+var D = {
+    touching: [B, C, F],
+    verticies: [BD, CD, DF]
+};
+
+var E = {
+    touching: [A, F],
+    verticies: [AE, FE]
+};
+
+var F = {
+    touching: [D, E],
+    verticies: [DF, FE]
+};
+
+var G = {
+    touching: [C],
+    verticies: [CG]
+};
+
+var nodeSet = {
+    nodes: [A, B, C, D, E, F, G],
+    vert_strings: ["AB", "AE", "BD", "BC", "CD", "CG", "DF", "FE"],
     vertices: [AB, AE, BD, BC, CD, CG, DF, FE]
 };
 
 var tree = {
     nodeCount: 8,
-	nodeSet: nodes
+	nodeSet: nodeSet
 };
 
 
@@ -103,59 +140,65 @@ var tree = {
 //Math to randomize all costs
 $('#shuffle').click(function shuffleCosts() {
 
-    AB.cost = Math.floor(Math.random() * 10);
-    AE.cost = Math.floor(Math.random() * 10);
-    BC.cost = Math.floor(Math.random() * 10);
-    BD.cost = Math.floor(Math.random() * 10);
-    CD.cost = Math.floor(Math.random() * 10);
-    CG.cost = Math.floor(Math.random() * 10);
-    DF.cost = Math.floor(Math.random() * 10);
-    FE.cost = Math.floor(Math.random() * 10);
+    AB.cost = Math.floor(Math.random() * 9 + 1);
+    AE.cost = Math.floor(Math.random() * 9 + 1);
+    BC.cost = Math.floor(Math.random() * 9 + 1);
+    BD.cost = Math.floor(Math.random() * 9 + 1);
+    CD.cost = Math.floor(Math.random() * 9 + 1);
+    CG.cost = Math.floor(Math.random() * 9 + 1);
+    DF.cost = Math.floor(Math.random() * 9 + 1);
+    FE.cost = Math.floor(Math.random() * 9 + 1);
 
 
 });
 
 ////Prim's Algorithm (Daemin)
-//function primsAlgorithm() {
-//	var key[];
-//	var mstSet[];
-//	function minKey(key[], mstSet []) {2q222
-//		var min = Number.MAX_VALUE, 
-//		var minIndex = -1;
+/*
+ *var key;
+    var mstSet;
+    function minKey(key, mstSet) {
+        var min = Number.MAX_VALUE;
+        var minIndex = -1;
 
-//		for (int v = 0; v < 6; v++) {
-//			if (mstSet[v] == false && key[v] < min)
-//			{
-//				min = key[v];
-//				minindex = v;
-//			}
-			
-//		}
-//			return minIndex;
-//		}
+        for (var v = 0; v < 6; v++) {
+            if (mstSet[v] == false && key[v] < min) {
+                min = key[v];
+                minindex = v;
+            }
 
-	
-//	for (var i = 0; i < 6; i++) {
-//		key[i] = Number.MAX_VALUE;
-//		mstSet[i] = false;
-//	}
-
-//	key[0] = 0;
-//	parent[0] = -1
-	
-
-//	var u = primNodes[0];
-//	key[0] = 0;
-//	}
-	
+        }
+        return minIndex;
+    }
 
 
+    for (var i = 0; i < 6; i++) {
+        key[i] = Number.MAX_VALUE;
+        mstSet[i] = false;
+    }
+
+    key[0] = 0;
+    parent[0] = -1
 
 
-//Prim's Button
-$("#prims").click(function () {
-	highlightVert("ab");
+    var u = primNodes[0];
+    key[0] = 0;
+ * 
+ */
+
+
+$("#prims").click(function primsAlgorithm() {
+    var vis;
+    var unvis = tree.nodeSet.vert_strings;
+
+
+
 });
+
+
+
+
+
+
 
 //Kruskal's Algorithm (Eric)
 
