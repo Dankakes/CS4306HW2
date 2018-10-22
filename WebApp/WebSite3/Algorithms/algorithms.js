@@ -157,39 +157,7 @@ $("#prims").click(function () {
 	highlightVert("ab");
 });
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
->>>>>>> ea7781f371c63512e84bc394a348e7205588db48
 //Kruskal's Algorithm (Eric)
-
-/*
-function kruskalsAlgorithm(node, vert) {
-	var mstSet[];
-	var originalTreeSetCost[AB, AE, BC, BD, CD, CG, DF, FE];	
-	for (var i = 0; i < originalTreeSetCost.length; i++) {
-		let value = originalTreeSetCost[i].cost
-		for (var j = i - 1; j > -1 && originalTreeSetCost[j].cost > value; j--) {
-			originalTreeSetCost[j + 1].cost = originalTreeSetCost[j].cost
-		}
-		originalTreeSetCost[j + 1].cost = value
-	}	
-	var cycleOne[BC, CD, BD];
-	var cycleTwo[AB, BD, DF, FE, AE];
-	for (var i = 0; i < originalTreeSetCost.length; i++) {
-			mstSet[i] = originalTreeSetCost[i];
-			if(mstSet[i].vertex != cycleOne && mstSet[i].vertex != cycleTwo)
-			{
-				highlightVert(mstSet[i].vertex);
-				highlightNode(mstSet[i].node);
-			}
-	}
-}
-*/
 
 
 
