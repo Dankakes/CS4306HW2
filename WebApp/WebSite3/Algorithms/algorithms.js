@@ -103,14 +103,14 @@ var tree = {
 //Math to randomize all costs
 $('#shuffle').click(function shuffleCosts() {
 
-    AB.cost = Math.floor(Math.random() * 10);
-    AE.cost = Math.floor(Math.random() * 10);
-    BC.cost = Math.floor(Math.random() * 10);
-    BD.cost = Math.floor(Math.random() * 10);
-    CD.cost = Math.floor(Math.random() * 10);
-    CG.cost = Math.floor(Math.random() * 10);
-    DF.cost = Math.floor(Math.random() * 10);
-    FE.cost = Math.floor(Math.random() * 10);
+    AB.cost = Math.floor(Math.random() * 9 + 1);
+    AE.cost = Math.floor(Math.random() * 9 + 1);
+    BC.cost = Math.floor(Math.random() * 9 + 1);
+    BD.cost = Math.floor(Math.random() * 9 + 1);
+    CD.cost = Math.floor(Math.random() * 9 + 1);
+    CG.cost = Math.floor(Math.random() * 9 + 1);
+    DF.cost = Math.floor(Math.random() * 9 + 1);
+    FE.cost = Math.floor(Math.random() * 9 + 1);
 
 
 });
@@ -157,46 +157,63 @@ $("#prims").click(function () {
 	highlightVert("ab");
 });
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
->>>>>>> ea7781f371c63512e84bc394a348e7205588db48
 //Kruskal's Algorithm (Eric)
 
 /*
-function kruskalsAlgorithm(node, vert) {
-	var mstSet[];
-	var originalTreeSetCost[AB, AE, BC, BD, CD, CG, DF, FE];	
-	for (var i = 0; i < originalTreeSetCost.length; i++) {
-		let value = originalTreeSetCost[i].cost
-		for (var j = i - 1; j > -1 && originalTreeSetCost[j].cost > value; j--) {
-			originalTreeSetCost[j + 1].cost = originalTreeSetCost[j].cost
-		}
-		originalTreeSetCost[j + 1].cost = value
-	}	
-	var cycleOne[BC, CD, BD];
-	var cycleTwo[AB, BD, DF, FE, AE];
-	for (var i = 0; i < originalTreeSetCost.length; i++) {
-			mstSet[i] = originalTreeSetCost[i];
-			if(mstSet[i].vertex != cycleOne && mstSet[i].vertex != cycleTwo)
-			{
-				highlightVert(mstSet[i].vertex);
-				highlightNode(mstSet[i].node);
-			}
-	}
-}
+$("#kruskals").click(function kruskalsAlgorithm(node, vert) {
+    var mstSet;
+    var originalTreeSetCost = [AB, AE, BC, BD, CD, CG, DF, FE];
+
+    var i = 0;
+
+    for (i = 0; i < originalTreeSetCost.length; i++) {
+        let value = originalTreeSetCost[i].cost;
+        for (var j = i - 1; j > -1 && originalTreeSetCost[j].cost > value; j--) {
+            originalTreeSetCost[j + 1].cost = originalTreeSetCost[j].cost;
+        }
+        originalTreeSetCost[j + 1].cost = value;
+    }
+    var cycleOne = [BC, CD, BD];
+    var cycleTwo = [AB, BD, DF, FE, AE];
+    for (i = 0; i < originalTreeSetCost.length; i++) {
+        mstSet[i] = originalTreeSetCost[i];
+        if (mstSet[i].vertex !== cycleOne && mstSet[i].vertex !== cycleTwo) {
+            highlightVert(mstSet[i].vertex);
+            highlightNode(mstSet[i].nodes[0]);
+            highlightNode(mstSet[i].nodes[1]);
+        }
+    }
+});
 */
 
+$("#kruskals").click(function kruskalsAlgorithm(node, vert) {
+    var newSet;
+    var originalSet = [AB, AE, BC, BD, CD, CG, DF, FE];
 
+    var i = 0;
+    var j = 0;
+    
 
-//Kruskal's Button
-$("#kruskals").click(function () {
+    for (i = 0; i < originalTreeSetCost.length; i++) {
+        var temp = originalSet[i];
+        for (j = 0; j < originalTreeSetCost.length; j++) {
+            if (originalSet[i].cost < temp.cost) {
+                temp = originalSet[i];
+            }
+        }
+        newSet[i] = temp;
+    }
+    var output = "";
 
+    for (i = 0; i < newSet.length; i++) {
+        output += ((newSet[i].vertex) + " ");
+    }
+
+    document.getElementById("kruskalspath").innerHTML = output;
 });
+
+
+
 
 //Printing and Visual Changes
 $('button').click(function reprintAll() {
