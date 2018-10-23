@@ -143,37 +143,113 @@ $('#shuffle').click(function shuffleCosts() {
 });
 
 ////Prim's Algorithm (Daemin)
-//function primsAlgorithm() {
-//	var key[];
-//	var mstSet[];
-//	function minKey(key[], mstSet []) {2q222
-//		var min = Number.MAX_VALUE, 
-//		var minIndex = -1;
 
-//		for (int v = 0; v < 6; v++) {
-//			if (mstSet[v] == false && key[v] < min)
-//			{
-//				min = key[v];
-//				minindex = v;
-//			}
-			
-//		}
-//			return minIndex;
-//		}
+//constructs Primms Algorithms
+function primMST() {
 
-	
-//	for (var i = 0; i < 6; i++) {
-//		key[i] = Number.MAX_VALUE;
-//		mstSet[i] = false;
-//	}
+	//var parent = [A, B, C, D, E, F, G]
+	var parent = [];
+	var v = tree.nodeCount - 1;
+	var key[];
+	var mstArr[];
+	var gEdges[] = [ABcost, AEcost, BCcost, BDcost, CDcost, CGcost, DFcost, FEcost];
+	var q[];
 
-//	key[0] = 0;
-//	parent[0] = -1
-	
+	for (var i = 0; i < v; i++) {
+		key[i] = Number.MAX_VALUE;
+		mstArr[i] = false;
+	}
 
-//	var u = primNodes[0];
-//	key[0] = 0;
-//	}
+	key[0] = 0;
+	mstArr[0] = true;
+	parent[0] = -1;
+	var u = 0;
+
+	function primsAlgorithm() {
+
+
+
+		while (mstArr[] != true;) {
+			switch (u) {
+
+				//A
+				case 0:
+					key[1] = ABcost;
+					key[4] = AEcost;
+
+
+
+					break;
+
+				//B
+				case 1:
+					key[1] = ABcost;
+					key[2] = BCcost;
+					key[3] = BDcost;
+
+					break;
+
+				//C
+				case 2:
+					key[2] = BCcost;
+					key[3] = CDcost;
+					key[6] = CGcost;
+					break;
+
+				//D
+				case 3:
+					key[1] = BDcost;
+					key[2] = CDcost;
+					key[5] = DFcost;
+					break;
+
+				//E
+				case 4:
+					key[4] = AEcost;
+					key[5] = FEcost;
+					break;
+
+
+				//F
+				case 5:
+					key[5] = FEcost;
+					break;
+
+				//G
+				case 6:
+					key[6] = CGcost;
+					break;
+
+			}
+
+
+
+
+			for (var y = 0; y < v; y++) {
+				if (mstArr[y] == true) {
+
+				}
+			}
+
+		}
+
+		//function printQueue() {
+		//	for (var p = 0; p < v; p++) {
+
+		//	}
+		//}
+
+		$("#primspath").innerHTML =  
+	}
+
+
+
+
+
+	//Prim's Button
+	$("#prims").click(function () {
+		highlightVert("ab");
+	});
 	
 
 
