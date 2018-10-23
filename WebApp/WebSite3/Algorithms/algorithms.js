@@ -84,10 +84,38 @@ var DF = {
 };
 
 var FE = {
-    vertex: "FE",
-    nodes: ["F", "E"],
+    vertex: "EF",
+    nodes: ["E", "F"],
     cost: FEcost
 };
+
+var A = {
+    string: "A"
+}
+
+var B = {
+    string: "B"
+}
+
+var C = {
+    string: "C"
+}
+
+var D = {
+    string: "D"
+}
+
+var E = {
+    string: "E"
+}
+
+var F = {
+    string: "F"
+}
+
+var G = {
+    string: "G"
+}
 
 var nodes = {
     vertices: [AB, AE, BD, BC, CD, CG, DF, FE]
@@ -97,7 +125,6 @@ var tree = {
     nodeCount: 8,
 	nodeSet: nodes
 };
-
 
 
 //Math to randomize all costs
@@ -157,6 +184,8 @@ $("#prims").click(function () {
 	highlightVert("ab");
 });
 
+
+
 //Kruskal's Algorithm (Eric)
 
 /*
@@ -187,29 +216,37 @@ $("#kruskals").click(function kruskalsAlgorithm(node, vert) {
 */
 
 $("#kruskals").click(function kruskalsAlgorithm(node, vert) {
-    var newSet;
-    var originalSet = [AB, AE, BC, BD, CD, CG, DF, FE];
+    document.getElementById("kruskalspath").innerHTML = "Failed"
 
-    var i = 0;
-    var j = 0;
-    
+    var Set = [AB, AE, BC, BD, CD, CG, DF, FE];
 
-    for (i = 0; i < originalTreeSetCost.length; i++) {
-        var temp = originalSet[i];
-        for (j = 0; j < originalTreeSetCost.length; j++) {
-            if (originalSet[i].cost < temp.cost) {
-                temp = originalSet[i];
-            }
+    for (var i = 0; i < Set.length; i++) {
+        let value = Set[i];
+
+        for (var j = i - 1; j > -1 && Set[j].cost > value.cost; j--) {
+            
+            Set[j + 1] = Set[j];
         }
-        newSet[i] = temp;
+        Set[j + 1] = value;
     }
+
     var output = "";
 
-    for (i = 0; i < newSet.length; i++) {
-        output += ((newSet[i].vertex) + " ");
+    for (var i = 0; i < Set.length; i++) {
+        output += ((Set[i].vertex) + ": " + Set[i].cost + "   ");
     }
-
     document.getElementById("kruskalspath").innerHTML = output;
+
+    //Highlight in order
+
+    for (var i = 0; i < Set.length; i++) {
+
+
+        window.setTimeout(highlightNode(Set[i].nodes[0]), 3000);
+        window.setTimeout(highlightNode(Set[i].nodes[1]), 3000);
+        window.setTimeout(highlightVert(Set[i].vertex), 3000);
+       
+    }
 });
 
 
@@ -233,35 +270,35 @@ $('button').click(function reprintAll() {
 
 function highlightVert(vert) {
     switch (vert) {
-        case "ab":
+        case "AB":
             document.getElementById("ab").style.fill = "#1850FF";
             document.getElementById("ab_line").style.stroke = "#1850FF";
             break;
-        case "ae":
+        case "AE":
             document.getElementById("ae").style.fill = "#1850FF";
             document.getElementById("ae_line").style.stroke = "#1850FF";
             break;
-        case "bc":
+        case "BC":
             document.getElementById("bc").style.fill = "#1850FF";
             document.getElementById("bc_line").style.stroke = "#1850FF";
             break;
-        case "bd":
+        case "BD":
             document.getElementById("bd").style.fill = "#1850FF";
             document.getElementById("bd_line").style.stroke = "#1850FF";
             break;
-        case "cd":
+        case "CD":
             document.getElementById("cd").style.fill = "#1850FF";
             document.getElementById("cd_line").style.stroke = "#1850FF";
             break;
-        case "cg":
+        case "CG":
             document.getElementById("cg").style.fill = "#1850FF";
             document.getElementById("cg_line").style.stroke = "#1850FF";
             break;
-        case "df":
+        case "DF":
             document.getElementById("df").style.fill = "#1850FF";
             document.getElementById("df_line").style.stroke = "#1850FF";
             break;
-        case "fe":
+        case "EF":
             document.getElementById("fe").style.fill = "#1850FF";
             document.getElementById("fe_line").style.stroke = "#1850FF";
             break;
@@ -270,32 +307,32 @@ function highlightVert(vert) {
 
 function highlightNode(node) {
     switch (node) {
-        case "a":
+        case "A":
             document.getElementById("a_circle").style.fill = "#1850FF";
             break;
-        case "b":
+        case "B":
             document.getElementById("b_circle").style.fill = "#1850FF";
             break;
-        case "c":
+        case "C":
             document.getElementById("c_circle").style.fill = "#1850FF";
             break;
-        case "d":
+        case "D":
             document.getElementById("d_circle").style.fill = "#1850FF";
             break;
-        case "e":
+        case "E":
             document.getElementById("e_circle").style.fill = "#1850FF";
             break;
-        case "f":
+        case "F":
             document.getElementById("f_circle").style.fill = "#1850FF";
             break;
-        case "g":
+        case "G":
             document.getElementById("g_circle").style.fill = "#1850FF";
             break;
        
     }
 }
 
-$("#resethighlight").click(function resetHighlight() {
+$("#shuffle").click(function resetHighlight() {
 
     document.getElementById("ab").style.fill = "black";
     document.getElementById("ae").style.fill = "black";
@@ -330,25 +367,24 @@ $("#begin").click(function () {
 });
 
 
-
 $("#highlightvert").click(function () {
-    highlightVert("ab");
-    highlightVert("ae");
-    highlightVert("bc");
-    highlightVert("bd");
-    highlightVert("cd");
-    highlightVert("cg");
-    highlightVert("df");
-    highlightVert("fe");
+    highlightVert("AB");
+    highlightVert("AE");
+    highlightVert("BC");
+    highlightVert("BD");
+    highlightVert("CD");
+    highlightVert("CG");
+    highlightVert("DF");
+    highlightVert("EF");
 });
 
 $("#highlightnode").click(function () {
-    highlightNode("a");
-    highlightNode("b");
-    highlightNode("c");
-    highlightNode("d");
-    highlightNode("e");
-    highlightNode("f");
-    highlightNode("g");
+    highlightNode("A");
+    highlightNode("B");
+    highlightNode("C");
+    highlightNode("D");
+    highlightNode("E");
+    highlightNode("F");
+    highlightNode("G");
 
 });
