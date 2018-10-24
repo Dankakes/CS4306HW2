@@ -91,31 +91,31 @@ var FE = {
 
 var A = {
     string: "A"
-}
+};
 
 var B = {
     string: "B"
-}
+};
 
 var C = {
     string: "C"
-}
+};
 
 var D = {
     string: "D"
-}
+};
 
 var E = {
     string: "E"
-}
+};
 
 var F = {
     string: "F"
-}
+};
 
 var G = {
     string: "G"
-}
+};
 
 var nodes = {
     vertices: [AB, AE, BD, BC, CD, CG, DF, FE]
@@ -132,12 +132,12 @@ $('#shuffle').click(function shuffleCosts() {
 
     AB.cost = Math.floor(Math.random() * 9 + 1);
     AE.cost = Math.floor(Math.random() * 9 + 1);
-    BC.cost = Math.floor(Math.random() * 9 + 1);
-    BD.cost = Math.floor(Math.random() * 9 + 1);
+    BC.cost = Math.floor(Math.random() * 5 + 1);
+    BD.cost = Math.floor(Math.random() * 9 + 5);
     CD.cost = Math.floor(Math.random() * 9 + 1);
     CG.cost = Math.floor(Math.random() * 9 + 1);
     DF.cost = Math.floor(Math.random() * 9 + 1);
-    FE.cost = Math.floor(Math.random() * 9 + 1);
+    FE.cost = Math.floor(Math.random() * 9 + 5);
 
 
 });
@@ -145,120 +145,113 @@ $('#shuffle').click(function shuffleCosts() {
 ////Prim's Algorithm (Daemin)
 
 //constructs Primms Algorithms
-function primMST() {
+$("#prims").click(function primMST() {
 
-	//var parent = [A, B, C, D, E, F, G]
-	var parent = [];
-	var v = tree.nodeCount - 1;
-	var key[];
-	var mstArr[];
-	var gEdges[] = [ABcost, AEcost, BCcost, BDcost, CDcost, CGcost, DFcost, FEcost];
-	var q[];
+    //var parent = [A, B, C, D, E, F, G]
+    var parent = [];
+    var v = tree.nodeCount - 1;
+    var key = [];
+    var mstArr = [];
+    var gEdges = [ABcost, AEcost, BCcost, BDcost, CDcost, CGcost, DFcost, FEcost];
+    var q = [];
 
-	for (var i = 0; i < v; i++) {
-		key[i] = Number.MAX_VALUE;
-		mstArr[i] = false;
-	}
+    for (var i = 0; i < v; i++) {
+        key[i] = Number.MAX_VALUE;
+        mstArr[i] = false;
+    }
 
-	key[0] = 0;
-	mstArr[0] = true;
-	parent[0] = -1;
-	var u = 0;
+    key[0] = 0;
+    mstArr[0] = true;
+    parent[0] = -1;
+    var u = 0;
 
-	function primsAlgorithm() {
-
-
-
-		while (mstArr[] != true;) {
-			switch (u) {
-
-				//A
-				case 0:
-					key[1] = ABcost;
-					key[4] = AEcost;
+    function primsAlgorithm() {
 
 
 
-					break;
+        while (mstArr !== true) {
+            switch (u) {
 
-				//B
-				case 1:
-					key[1] = ABcost;
-					key[2] = BCcost;
-					key[3] = BDcost;
-
-					break;
-
-				//C
-				case 2:
-					key[2] = BCcost;
-					key[3] = CDcost;
-					key[6] = CGcost;
-					break;
-
-				//D
-				case 3:
-					key[1] = BDcost;
-					key[2] = CDcost;
-					key[5] = DFcost;
-					break;
-
-				//E
-				case 4:
-					key[4] = AEcost;
-					key[5] = FEcost;
-					break;
-
-
-				//F
-				case 5:
-					key[5] = FEcost;
-					break;
-
-				//G
-				case 6:
-					key[6] = CGcost;
-					break;
-
-			}
+                //A
+                case 0:
+                    key[1] = ABcost;
+                    key[4] = AEcost;
 
 
 
+                    break;
 
-			for (var y = 0; y < v; y++) {
-				if (mstArr[y] == true) {
+                //B
+                case 1:
+                    key[1] = ABcost;
+                    key[2] = BCcost;
+                    key[3] = BDcost;
 
-				}
-			}
+                    break;
 
-		}
+                //C
+                case 2:
+                    key[2] = BCcost;
+                    key[3] = CDcost;
+                    key[6] = CGcost;
+                    break;
 
-		//function printQueue() {
-		//	for (var p = 0; p < v; p++) {
+                //D
+                case 3:
+                    key[1] = BDcost;
+                    key[2] = CDcost;
+                    key[5] = DFcost;
+                    break;
 
-		//	}
-		//}
+                //E
+                case 4:
+                    key[4] = AEcost;
+                    key[5] = FEcost;
+                    break;
 
-		$("#primspath").innerHTML =  
-	}
+
+                //F
+                case 5:
+                    key[5] = FEcost;
+                    break;
+
+                //G
+                case 6:
+                    key[6] = CGcost;
+                    break;
+
+            }
 
 
 
 
+            for (var y = 0; y < v; y++) {
+                if (mstArr[y] === true) {
+                    break;
+                }
+            }
 
-	//Prim's Button
-	$("#prims").click(function () {
-		highlightVert("ab");
-	});
-	
+        }
+
+        //function printQueue() {
+        //	for (var p = 0; p < v; p++) {
+
+        //	}
+        //}
+
+        $("#primspath").innerHTML = "Finished";
+    }
+});
+
+
+
+
+
 
 
 
 
 //Prim's Button
-$("#prims").click(function () {
-	highlightVert("ab");
-});
 
 
 
@@ -292,19 +285,52 @@ $("#kruskals").click(function kruskalsAlgorithm(node, vert) {
 */
 
 $("#kruskals").click(function kruskalsAlgorithm(node, vert) {
-    document.getElementById("kruskalspath").innerHTML = "Failed"
+    document.getElementById("kruskalspath").innerHTML = "Failed";
 
     var Set = [AB, AE, BC, BD, CD, CG, DF, FE];
-
+    var max = AB;
+    var cycles = [[BC, CD, BD, FE], [AB, BD, DF, FE, AE]];
+    var difference = [];
     for (var i = 0; i < Set.length; i++) {
         let value = Set[i];
 
         for (var j = i - 1; j > -1 && Set[j].cost > value.cost; j--) {
-            
+
             Set[j + 1] = Set[j];
+            if (value.cost > max.cost && cycles.includes(value)) {
+                max = value;
+                difference.push(max);
+            }
         }
+
         Set[j + 1] = value;
     }
+    //Cycle Check
+
+    
+    
+  
+
+    for (var i = 0; i < cycles[0].length; i++) {
+        var val = cycles[0][i];
+        for (var j = 0; j < cycles[1].length; j++) {
+            
+            if (val === cycles[1][j]) {
+                difference.push(val);
+            }
+        }
+    }
+    for (var i = 0; i < Set.length - 1; i++) {
+        for (var j = 0; j < difference.length; j++)
+            if (Set[i] === difference[j]) {
+                Set.splice(i, 1);
+            }
+    }
+
+    
+    
+
+    
 
     var output = "";
 
@@ -314,18 +340,17 @@ $("#kruskals").click(function kruskalsAlgorithm(node, vert) {
     document.getElementById("kruskalspath").innerHTML = output;
 
     //Highlight in order
-
     for (var i = 0; i < Set.length; i++) {
 
-
-        window.setTimeout(highlightNode(Set[i].nodes[0]), 3000);
-        window.setTimeout(highlightNode(Set[i].nodes[1]), 3000);
-        window.setTimeout(highlightVert(Set[i].vertex), 3000);
-       
+        highlightNode(Set[i].nodes[0]);
+        highlightNode(Set[i].nodes[1]);
+        highlightVert(Set[i].vertex);
     }
+
+    for (var i = 0; i < difference.length; i++) {
+    }
+   
 });
-
-
 
 
 //Printing and Visual Changes
@@ -404,9 +429,74 @@ function highlightNode(node) {
         case "G":
             document.getElementById("g_circle").style.fill = "#1850FF";
             break;
-       
+
     }
 }
+
+function hideNode(node) {
+    switch (node) {
+        case "A":
+            document.getElementById("a_circle").style.fill = "rgba(0, 0, 0, 0)";
+            break;
+        case "B":
+            document.getElementById("b_circle").style.fill = "rgba(0, 0, 0, 0)";
+            break;
+        case "C":
+            document.getElementById("c_circle").style.fill = "rgba(0, 0, 0, 0)";
+            break;
+        case "D":
+            document.getElementById("d_circle").style.fill = "rgba(0, 0, 0, 0)";
+            break;
+        case "E":
+            document.getElementById("e_circle").style.fill = "rgba(0, 0, 0, 0)";
+            break;
+        case "F":
+            document.getElementById("f_circle").style.fill = "rgba(0, 0, 0, 0)";
+            break;
+        case "G":
+            document.getElementById("g_circle").style.fill = "rgba(0, 0, 0, 0)";
+            break;
+
+    }
+}
+function hideVert(vert) {
+    switch (vert) {
+        case "AB":
+            document.getElementById("ab").style.fill = "rgba(0, 0, 0, 0)";
+            document.getElementById("ab_line").style.stroke = "rgba(0, 0, 0, 0)";
+            break;
+        case "AE":
+            document.getElementById("ae").style.fill = "rgba(0, 0, 0, 0)";
+            document.getElementById("ae_line").style.stroke = "rgba(0, 0, 0, 0)";
+            break;
+        case "BC":
+            document.getElementById("bc").style.fill = "rgba(0, 0, 0, 0)";
+            document.getElementById("bc_line").style.stroke = "rgba(0, 0, 0, 0)";
+            break;
+        case "BD":
+            document.getElementById("bd").style.fill = "rgba(0, 0, 0, 0)";
+            document.getElementById("bd_line").style.stroke = "rgba(0, 0, 0, 0)";
+            break;
+        case "CD":
+            document.getElementById("cd").style.fill = "rgba(0, 0, 0, 0)";
+            document.getElementById("cd_line").style.stroke = "rgba(0, 0, 0, 0)";
+            break;
+        case "CG":
+            document.getElementById("cg").style.fill = "rgba(0, 0, 0, 0)";
+            document.getElementById("cg_line").style.stroke = "rgba(0, 0, 0, 0)";
+            break;
+        case "DF":
+            document.getElementById("df").style.fill = "rgba(0, 0, 0, 0)";
+            document.getElementById("df_line").style.stroke = "rgba(0, 0, 0, 0)";
+            break;
+        case "EF":
+            document.getElementById("fe").style.fill = "rgba(0, 0, 0, 0)";
+            document.getElementById("fe_line").style.stroke = "rgba(0, 0, 0, 0)";
+            break;
+    }
+}
+
+
 
 $("#shuffle").click(function resetHighlight() {
 
