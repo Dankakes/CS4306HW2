@@ -145,72 +145,105 @@ $('#shuffle').click(function shuffleCosts() {
 });
 
 ////Prim's Algorithm (Daemin)
+var v = tree.nodeCount;
+var key = [];
+var mstArr = [];
+var q = ["A"];
+var u = 0;
+var nextU;
+var minCounter;
 
 //constructs Primms Algorithms
 $("#prims").click(function primMST() {
     //var parent = [A, B, C, D, E, F, G]
-    var v = tree.nodeCount;
-    var key = [];
-    var mstArr = [];
-	var q = ["A"];
+
 
     for (var i = 0; i < v; i++) {
         key[i] = 20;
         mstArr[i] = false;
     }
+	mstArr[0] = true;
 
-	var u = 0;
-	var nextU;
-	for (var z = 0; z <= v; z++) {
+	for (var z = 0; z <= v-2; z++) {
 			switch (u) {
 
 				//A
 				case 0:
-					key[1] = AB.cost;
-					key[4] = AE.cost;
+					if (mstArr[1] != true) {
+						key[1] = AB.cost;
+					}
+					if (mstArr[4] != false){
+						key[4] = AE.cost;
+					}
 					console.log("Case A");
                     break;
 				//B
-                case 1:
-                    key[1] = AB.cost;
-                    key[2] = BC.cost;
-                    key[3] = BD.cost;
+				case 1:
+					if (mstArr[1] != true) {
+						key[1] = AB.cost;
+					}
+					if (mstArr[2] != true) {
+						key[2] = BC.cost;
+					}
+					if (mstArr[3] != true) {
+						key[3] = BD.cost;
+					}
 					console.log("Case B");
                     break;
 
                 //C
-                case 2:
-                    key[2] = BC.cost;
-                    key[3] = CD.cost;
-					key[6] = CG.cost;
+				case 2:
+					if (mstArr[2] != true) {
+						key[2] = BC.cost;
+					}
+					if (mstArr[3] != true) {
+						key[3] = CD.cost;
+					}
+					if (mstArr[6] != true) {
+						key[6] = CG.cost;
+					}
 					console.log("Case C");
                     break;
 
                 //D
-                case 3:
-                    key[1] = BD.cost;
-                    key[2] = CD.cost;
-					key[5] = DF.cost;
+				case 3:
+					if (mstArr[1] != true) {
+						key[1] = BD.cost;
+					}
+					if (mstArr[2] != true) {
+						key[2] = CD.cost;
+					}
+					if (mstArr[4] != true) {
+						key[5] = DF.cost;
+					}
 					console.log("Case D");
                     break;
 
                 //E
-                case 4:
-                    key[4] = AE.cost;
-					key[5] = FE.cost;
+				case 4:
+					if (mstArr[4] != true) {
+						key[4] = AE.cost;
+					}
+					if (mstArr[5] != true) {
+						key[5] = FE.cost;
+					}
 					console.log("Case E");
                     break;
 
 
                 //F
-                case 5:
-					key[5] = FE.cost;
+				case 5:
+					if (mstArr[5] != true) {
+						key[5] = FE.cost;
+					}
 					console.log("Case F");
                     break;
 
                 //G
-                case 6:
-					key[6] = CG.cost;
+				case 6:
+					if (mstArr[1] != true) {
+						key[6] = CG.cost;
+					}
 					console.log("Case G");
                     break;
 
@@ -218,13 +251,20 @@ $("#prims").click(function primMST() {
 		console.log("MST: "+mstArr);
 		console.log("Key: "+key);
 		console.log("U: " + u);
-			for (var g = 0; g <= v-1; g++) {
+			for (var g = 0; g <= v; g++) {
 				if (mstArr[g] != true && key[g] == Math.min.apply(null, key)) {
-					mstArr[g] = true;
-					console.log("Minimum Triggered at: " + g);
-					nextU = g;
+					if (minCounter <= 0) {
+						mstArr[g] = true;
+						console.log("New Value of Key: ");
+						console.log("Minimum Triggered at: " + g);
+						nextU = g;
+						minCounter++;
+						
+					}
 				}
-			}
+		}
+		minCounter = 0;
+		
 		console.log(nextU);
 			switch (nextU) {
 				case 0:
@@ -255,7 +295,14 @@ $("#prims").click(function primMST() {
 					q.push("G");
 					u = 6;
 					break;
+		}
+		console.log("Next U: " + nextU);
+
+		for (var t = 0; t <= v; t++) {
+			if (mstArr[t] == true) {
+				key[t] = 100;
 			}
+		}
 	}
 
 	console.log(q);
