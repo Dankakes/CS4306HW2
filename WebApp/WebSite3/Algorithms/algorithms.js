@@ -41,6 +41,7 @@ var CGcost = 0;
 var DFcost = 0;
 var FEcost = 0;
 
+
 var AB = {
     vertex: "AB",
     nodes: ["A", "B"],
@@ -122,7 +123,7 @@ var nodes = {
 };
 
 var tree = {
-    nodeCount: 8,
+    nodeCount: 7,
 	nodeSet: nodes
 };
 
@@ -137,8 +138,9 @@ $('#shuffle').click(function shuffleCosts() {
     CD.cost = Math.floor(Math.random() * 9 + 1);
     CG.cost = Math.floor(Math.random() * 9 + 1);
     DF.cost = Math.floor(Math.random() * 9 + 1);
-    FE.cost = Math.floor(Math.random() * 9 + 5);
-
+	FE.cost = Math.floor(Math.random() * 9 + 5);
+	var pCosts = [AB.cost, BC.cost, BD.cost, CD.cost, CG.cost, DF.cost, FE.cost];
+	console.log(pCosts);
 
 });
 
@@ -146,101 +148,119 @@ $('#shuffle').click(function shuffleCosts() {
 
 //constructs Primms Algorithms
 $("#prims").click(function primMST() {
-
     //var parent = [A, B, C, D, E, F, G]
-    var parent = [];
-    var v = tree.nodeCount - 1;
+    var v = tree.nodeCount;
     var key = [];
     var mstArr = [];
-    var gEdges = [ABcost, AEcost, BCcost, BDcost, CDcost, CGcost, DFcost, FEcost];
-    var q = [];
+	var q = ["A"];
 
     for (var i = 0; i < v; i++) {
-        key[i] = Number.MAX_VALUE;
+        key[i] = 20;
         mstArr[i] = false;
     }
 
-    key[0] = 0;
-    mstArr[0] = true;
-    parent[0] = -1;
-    var u = 0;
+	var u = 0;
+	var nextU;
+	for (var z = 0; z <= v; z++) {
+			switch (u) {
 
-    function primsAlgorithm() {
-
-
-
-        while (mstArr !== true) {
-            switch (u) {
-
-                //A
-                case 0:
-                    key[1] = ABcost;
-                    key[4] = AEcost;
-
-
-
+				//A
+				case 0:
+					key[1] = AB.cost;
+					key[4] = AE.cost;
+					console.log("Case A");
                     break;
-
-                //B
+				//B
                 case 1:
-                    key[1] = ABcost;
-                    key[2] = BCcost;
-                    key[3] = BDcost;
-
+                    key[1] = AB.cost;
+                    key[2] = BC.cost;
+                    key[3] = BD.cost;
+					console.log("Case B");
                     break;
 
                 //C
                 case 2:
-                    key[2] = BCcost;
-                    key[3] = CDcost;
-                    key[6] = CGcost;
+                    key[2] = BC.cost;
+                    key[3] = CD.cost;
+					key[6] = CG.cost;
+					console.log("Case C");
                     break;
 
                 //D
                 case 3:
-                    key[1] = BDcost;
-                    key[2] = CDcost;
-                    key[5] = DFcost;
+                    key[1] = BD.cost;
+                    key[2] = CD.cost;
+					key[5] = DF.cost;
+					console.log("Case D");
                     break;
 
                 //E
                 case 4:
-                    key[4] = AEcost;
-                    key[5] = FEcost;
+                    key[4] = AE.cost;
+					key[5] = FE.cost;
+					console.log("Case E");
                     break;
 
 
                 //F
                 case 5:
-                    key[5] = FEcost;
+					key[5] = FE.cost;
+					console.log("Case F");
                     break;
 
                 //G
                 case 6:
-                    key[6] = CGcost;
+					key[6] = CG.cost;
+					console.log("Case G");
                     break;
 
-            }
+			}
+		console.log("MST: "+mstArr);
+		console.log("Key: "+key);
+		console.log("U: " + u);
+			for (var g = 0; g <= v-1; g++) {
+				if (mstArr[g] != true && key[g] == Math.min.apply(null, key)) {
+					mstArr[g] = true;
+					console.log("Minimum Triggered at: " + g);
+					nextU = g;
+				}
+			}
+		console.log(nextU);
+			switch (nextU) {
+				case 0:
+					u = 0;
+					q.push("A");
+					break;
+				case 1:
+					u = 1;
+					q.push("B");
+					break;
+				case 2:
+					u = 2;
+					q.push("C");
+					break;
+				case 3:
+					q.push("D");
+					u = 3;
+					break;
+				case 4:
+					q.push("E");
+					u = 4;
+					break;
+				case 5:
+					q.push("F");
+					u = 5;
+					break;
+				case 6:
+					q.push("G");
+					u = 6;
+					break;
+			}
+	}
 
-
-
-
-            for (var y = 0; y < v; y++) {
-                if (mstArr[y] === true) {
-                    break;
-                }
-            }
-
-        }
-
-        //function printQueue() {
-        //	for (var p = 0; p < v; p++) {
-
-        //	}
-        //}
-
-        $("#primspath").innerHTML = "Finished";
-    }
+	console.log(q);
+//   $("#primspath").innerHTML = q[1];
+ 
 });
 
 
